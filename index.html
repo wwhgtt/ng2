@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <title>Angular2ByWWH</title>
+    <meta charset="UTF-8">
+    <base href="/">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href='node_modules/bootstrap/dist/css/bootstrap.min.css'>
+    <!-- 1. Load libraries -->
+     <!-- Polyfill(s) for older browsers -->
+    <script src="node_modules/core-js/client/shim.min.js"></script>
+    <script src="node_modules/zone.js/dist/zone.js"></script>
+    <script src="node_modules/reflect-metadata/Reflect.js"></script>
+    <script src="node_modules/systemjs/dist/system.src.js"></script>
+    <!-- 2. Configure SystemJS -->
+
+    <!-- We begin with core-js's ES2015/ES6 shim which monkey patches the global context (window) with essential features of ES2015 (ES6). Next are the polyfills for Angular2, zone.js and reflect-metadata. Then the SystemJS library for module loading. -->
+
+    <script src="systemjs.config.js"></script>
+    <script>
+      System.import('app').catch(function(err){ console.error(err); });
+    </script>
+  </head>
+  <!-- 3. Display the application -->
+  <body>
+    <my-app>Loading...</my-app>
+  </body>
+</html>
+
