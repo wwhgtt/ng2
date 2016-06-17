@@ -9,7 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var hero_detail_1 = require('./hero-detail');
+var hero_detail_component_1 = require('./hero-detail.component');
 var hero_service_1 = require('./hero.service');
 var AppComponent = (function () {
     function AppComponent(heroService) {
@@ -28,7 +28,7 @@ var AppComponent = (function () {
         core_1.Component({
             selector: 'my-app',
             template: "\n    <h1>{{title}}</h1>\n    <h2>My Heroes</h2>\n    <ul class=\"heroes\">\n      <li *ngFor=\"let hero of heroes\"\n        [class.selected]=\"hero === selectedHero\"\n        (click)=\"onSelect(hero)\">\n        <span class=\"badge\">{{hero.id}}</span> {{hero.name}}\n      </li>\n    </ul>\n    <my-hero-detail [hero]=\"selectedHero\"></my-hero-detail>\n  ",
-            directives: [hero_detail_1.HeroDetailComponent],
+            directives: [hero_detail_component_1.HeroDetailComponent],
             providers: [hero_service_1.HeroService]
         }), 
         __metadata('design:paramtypes', [hero_service_1.HeroService])
