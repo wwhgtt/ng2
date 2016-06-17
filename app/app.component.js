@@ -9,17 +9,29 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var hello_world_1 = require('./directives/hello_world');
+var hero_detail_1 = require('./hero-detail');
+var hero_service_1 = require('./hero.service');
 var AppComponent = (function () {
-    function AppComponent() {
+    function AppComponent(heroService) {
+        this.heroService = heroService;
+        this.title = 'Tour of Heroes';
     }
+    AppComponent.prototype.getHeroes = function () {
+        var _this = this;
+        this.heroService.getHeroes().then(function (heroes) { return _this.heroes = heroes; });
+    };
+    AppComponent.prototype.ngOnInit = function () {
+        this.getHeroes();
+    };
+    AppComponent.prototype.onSelect = function (hero) { this.selectedHero = hero; };
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            directives: [hello_world_1.helloWorld],
-            templateUrl: './app/template/hello.html'
+            template: "\n    <h1>{{title}}</h1>\n    <h2>My Heroes</h2>\n    <ul class=\"heroes\">\n      <li *ngFor=\"let hero of heroes\"\n        [class.selected]=\"hero === selectedHero\"\n        (click)=\"onSelect(hero)\">\n        <span class=\"badge\">{{hero.id}}</span> {{hero.name}}\n      </li>\n    </ul>\n    <my-hero-detail [hero]=\"selectedHero\"></my-hero-detail>\n  ",
+            directives: [hero_detail_1.HeroDetailComponent],
+            providers: [hero_service_1.HeroService]
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [hero_service_1.HeroService])
     ], AppComponent);
     return AppComponent;
 }());
