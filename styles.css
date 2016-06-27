@@ -5,6 +5,7 @@ h1 {
 }
 body {
     margin: 2em;
+    padding: 2em;
 }
 .selected {
 	background-color: #CFD8DC !important;
